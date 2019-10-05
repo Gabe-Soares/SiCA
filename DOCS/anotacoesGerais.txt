@@ -1,0 +1,3 @@
+- Processamento de Imagem com JS: 
+	- imageData: https://developer.mozilla.org/en-US/docs/Web/API/Canvas_API/Tutorial/Pixel_manipulation_with_canvas,
+			https://html.spec.whatwg.org/multipage/canvas.html#dom-context-2d-getimagedata
