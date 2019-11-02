@@ -2,7 +2,7 @@
 //      - Tratamento de exceções
 
 // Imports
-var mysql = requiser('mysql');
+var mysql = require('mysql');
 
 class ReservaAmbientalController{
     
@@ -15,17 +15,26 @@ class ReservaAmbientalController{
         this._lista_negociacoes = new ListaNegociacoes();
     }
 
-    adiciona(event) {
-        event.preventDefault();
-        
-        this._lista_negociacoes.adiciona(this._criaNegociacao());
-        this._limpaForm();
+    _connect() {
+        var conn = mysql.createConnection({
+            host: "localhost",
+            user: "yourusername",
+            password: "yourpassword",
+            database: "mydb"
+        });
+
+        con.connect(err => {
+            if (err) throw err;
+            console.log("Successfully Connected to the MySQL Database.");
+        });
+
+        return(conn);
     }
 
-    _criaNegociacao(){
-        return (new Negociacao(DateHelper.textToDate(this._data_input),
-             this._qtde_input.value,
-             this._valor_input.value));
+    cadastra(){
+        conn = this._connect();
+
+        var query = "INSERT INTO customers (name, address) VALUES ('Company Inc', 'Highway 37')"
     }
 
     _limpaForm(){
@@ -36,24 +45,3 @@ class ReservaAmbientalController{
         this._data_input.focus();
     }
 }
-/*
-    
-
-    campos.forEach(function(campo){
-        var td = document.createElement('td');
-        td.textContent = campo.value;
-        tr.appendChild(td);
-    });
-
-    var td_volume = document.createElement('td');
-    td_volume.textContent = campos[1].value * campos[2].value;
-
-    tr.appendChild(td_volume);
-
-    tbody.appendChild(tr);
-
-    campos[0].value = '';
-    campos[1].value = 1;
-    campos[2].value = 0;
-
-    campos[0].focus();*/
