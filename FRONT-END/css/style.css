@@ -1,3 +1,19 @@
 html{
-    overflow-y:hidden;
+    overflow-x: hidden;
+}
+
+.row{
+    padding: 0;
+}
+
+#menuVert{
+    width: 25vw;
+    height: 100vh;
+    background-color: aquamarine;
+}
+
+#content{
+    width: 75vw;
+    height: 100vh;
+    background-color: bisque;
 }
