@@ -3,7 +3,7 @@ const http = require('http'),
     app = require('./config/routes');
 
 // Declaração de variáveis
-const port = 80,
+const port = 8080,
     ip = '127.0.0.1';
 
 http.createServer(app).listen(port, ip, function() {

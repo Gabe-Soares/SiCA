@@ -4,74 +4,63 @@
 // Imports
 var mysql = require('mysql');
 
-class ReservaAmbientalController{
+function connect(){
+    var conn = mysql.createConnection({
+        host: "localhost:3308",
+        user: "root",
+        password: "toor",
+        database: "SiCA_DB"
+    });
+
+    conn.connect(err => {
+        if (err) throw err;
+        console.log("Successfully Connected to the MySQL Database.");
+    });
+
+    return(conn);
+}
+
+exports.insert = function (req, res){
+    //conn = connect();
+    console.log(req);
+    res.send(req);
+
+    // reserva = new ReservaAmbiental($('#usuario').value, $('#nome').value, $('#local').value, $('#tamanho').value, $('#tipo').value, $('#saude').value);
+
+    // if(conn.state == 'disconnected'){
+    //     console.log("Error ReservaAmbientalController.insert(): MySQL connection object state is disconnected.");
+    // }
+    // else{
+    //     var query = "INSERT INTO reservas_ambientais (reservas_id_usuario, nome, local, tamanho, tipo_reserva, saude_reserva) VALUES (" + reserva.usuario() + ", " + reserva.nome() + ", " + reserva.local() + ", " + reserva.tamanho() + ", " + reserva.tipo() + ", " + reserva.saude() + ")"
     
-    constructor() {
-        this.$ = document.querySelector.bind(document);
-        this._conn = this._connect();
-        this._reserva = null;
+    //     conn.query(query, (err, result) => {
+    //         if (err) throw err;
+    //         console.log("Successfully inserted into reservas_ambientais.");
+    //     });
+    // }
+}
+
+exports.select = function (req, res){
+    conn = connect();
+
+    let id_select = $('#id').value;
+    let usuario_select = $('#usuario').value;
+    let nome_select = $('#nome').value;
+    let local_select = $('#local').value;
+    let tamanho_select = $('#tamanho').value;
+    let tipo_select = $('#tipo').value;
+    let saude_select = $('#saude').value;
+
+    if(conn.state == 'disconnected'){
+        console.log("Error ReservaAmbientalController.select(): MySQL connection object state is disconnected.");
     }
-
-    _connect() {
-        var conn = mysql.createConnection({
-            host: "localhost",
-            user: "yourusername",
-            password: "yourpassword",
-            database: "mydb"
-        });
-
-        con.connect(err => {
+    else{
+        // QUERY NÃO FINALIZADA
+        var query = "SELECT * FROM reservas_ambientais WHERE )";
+    
+        conn.query(query, (err, result, fields) => {
             if (err) throw err;
-            console.log("Successfully Connected to the MySQL Database.");
+            console.log("Successfully selected from reservas_ambientais.");
         });
-
-        return(conn);
-    }
-
-    insert(){
-        this._reserva = new ReservaAmbiental($('#usuario').value, $('#nome').value, $('#local').value, $('#tamanho').value, $('#tipo').value, $('#saude').value);
-
-        if(this._conn.state == 'disconnected'){
-            console.log("Error ReservaAmbientalController.insert(): MySQL connection object state is disconnected.");
-        }
-        else{
-            var query = "INSERT INTO reservas_ambientais (reservas_id_usuario, nome, local, tamanho, tipo_reserva, saude_reserva) VALUES (" + this._reserva.usuario() + ", " + this._reserva.nome() + ", " + this._reserva.local() + ", " + this._reserva.tamanho() + ", " + this._reserva.tipo() + ", " + this._reserva.saude() + ")"
-        
-            this._con.query(query, (err, result) => {
-                if (err) throw err;
-                console.log("Successfully inserted into reservas_ambientais.");
-            });
-        }
-    }
-
-    select(){
-        let id_select = $('#id').value;
-        let usuario_select = $('#usuario').value;
-        let nome_select = $('#nome').value;
-        let local_select = $('#local').value;
-        let tamanho_select = $('#tamanho').value;
-        let tipo_select = $('#tipo').value;
-        let saude_select = $('#saude').value);
-
-        if(this._conn.state == 'disconnected'){
-            console.log("Error ReservaAmbientalController.select(): MySQL connection object state is disconnected.");
-        }
-        else{
-            // QUERY NÃO FINALIZADA
-            var query = "SELECT * FROM reservas_ambientais WHERE )";
-        
-            this._con.query(query, (err, result, fields) => {
-                if (err) throw err;
-                console.log("Successfully selected from reservas_ambientais.");
-            });
-        }
-    }
-
-    _preencheTela(){
-
-    }
-
-    update(){
-
     }
 }
