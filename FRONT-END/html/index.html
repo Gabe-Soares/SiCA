@@ -3,8 +3,37 @@
 <head>
     <meta charset="UTF-8">
     <title>Document</title>
+    <link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/angular_material/1.1.12/angular-material.min.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+    <link rel="stylesheet" href="../css/style.css">
 </head>
-<body>
-    <p>Matheus</p>
+<body ng-app="App" ng-controller="appCtrl as ctrl">
+    <div class="row">
+        <div id="menuVert" class="col-3"></div>
+        <div id="content" class="col-9">
+        </div>
+    </div>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.7.8/angular.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.7.8/angular-route.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angular_material/1.1.12/angular-material.min.js"></script>
+    <script>
+        var app = angular.module("App", ['ngRoute']);
+        app.controller('appCtrl', function(){
+            var self = this;
+
+            self.nome = 'Matheus'
+        })
+        app.config(function($routeProvider){
+        $routeProvider.when('/', {
+            templateUrl: 'index.html',
+            controller: 'appCtrl'
+        })
+        .when('/cadR', {
+            templateUrl: 'pages/cadReserva/cadReserva.html'
+        })
+        .otherwise({redirectTo: '/'})
+        })
+    </script>
 </body>
 </html>
