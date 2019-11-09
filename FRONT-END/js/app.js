@@ -1,7 +1,7 @@
 var app = angular.module("App", ['ngRoute']);
 app.controller('appCtrl', function(){
   var self = this;
-  self.nome = 'qualquer merda ai'
+  self.nameAplication = 'S i C A'
 
 })
 app.config(function($routeProvider){
