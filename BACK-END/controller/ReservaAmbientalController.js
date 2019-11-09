@@ -3,41 +3,49 @@
 
 // Imports
 var mysql = require('mysql');
+require('../model/ReservaAmbiental');
 
-function connect(){
+function connect(res){
     var conn = mysql.createConnection({
-        host: "localhost:3308",
+        host: "127.0.0.1",
+        port:'3308',
         user: "root",
         password: "toor",
-        database: "SiCA_DB"
+        database: "sica"
     });
 
     conn.connect(err => {
-        if (err) throw err;
-        console.log("Successfully Connected to the MySQL Database.");
+        if (err){
+            console.log("Connection to the MySQL Database failed.");
+            res.status(503);
+            res.end();
+            throw err;
+        }
+        console.log("Successfully connected to MySQL Database."); 
     });
 
     return(conn);
 }
 
 exports.insert = function (req, res){
-    conn = connect();
-    // console.log(req.body.name);
-    // res.send(req.body);
+    conn = connect(res);
 
-    reserva = new ReservaAmbiental(req.body.usuario, req.body.nome, req.body.local, req.body.tamanho, req.body.tipo, req.body.saude);
+    // var query = "INSERT INTO reservas_ambientais (reservas_id_usuario, nome, local, tamanho, tipo_reserva, saude_reserva) VALUES (" + req.body.usuario + ", " + req.body.nome + ", " + req.body.local + ", " + req.body.tamanho + ", " + req.body.tipo + ", " + req.body.saude + ")"
+    var query = "INSERT INTO teste values ( " + req.body.id + ")"
 
-    if(conn.state == 'disconnected'){
-        console.log("Error ReservaAmbientalController.insert(): MySQL connection object state is disconnected.");
-    }
-    else{
-        var query = "INSERT INTO reservas_ambientais (reservas_id_usuario, nome, local, tamanho, tipo_reserva, saude_reserva) VALUES (" + reserva.usuario() + ", " + reserva.nome() + ", " + reserva.local() + ", " + reserva.tamanho() + ", " + reserva.tipo() + ", " + reserva.saude() + ")"
-        console.log(query);
-        conn.query(query, (err, result) => {
-            if (err) throw err;
+    conn.query(query, (err, result) => {
+        if (err) {
+            console.log("Failed to insert into reservas_ambientais.");
+            res.status(503);
+            res.end();
+            throw err;
+        }
+        else{
             console.log("Successfully inserted into reservas_ambientais.");
-        });
-    }
+            res.status(200);
+            res.end();
+        }
+    });
 }
 
 exports.select = function (req, res){

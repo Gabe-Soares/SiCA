@@ -19,4 +19,6 @@ var express = require('express'),
     res.redirect('/index.html');
   });
 
+  app.route('/api/ReservaAmbiental/Cadastro/').post(ReservaAmbientalController.insert);
+
 module.exports = app;
