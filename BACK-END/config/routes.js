@@ -5,12 +5,18 @@ var express = require('express'),
     ReservaAmbientalController = require('../controller/ReservaAmbientalController');
 
   app.use(bodyParser.json());
+  app.use('/js', express.static(path.join(__dirname, '../../FRONT-END/js')));
+  app.use('/html', express.static(path.join(__dirname, '../../FRONT-END/html')));
+  app.use('/css', express.static(path.join(__dirname, '../../FRONT-END/css')));
+
+  app.route('/index.html')
+  .get((req, res) => {
+    res.sendFile(path.join(__dirname + '../../../FRONT-END/html/index.html'));
+  });
 
   app.route('/')
-    .get((req, res) => {
-      res.sendFile(path.join(__dirname + '../../../FRONT-END/html/index.html'));
-    });
+  .get((req, res) => {
+    res.redirect('/index.html');
+  });
 
-app.route('/api/ReservaAmbiental/Cadastro/').post(ReservaAmbientalController.insert);  
-  
 module.exports = app;
