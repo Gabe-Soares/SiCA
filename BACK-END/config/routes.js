@@ -10,6 +10,7 @@ app.use(bodyParser.json());
 app.use('/js', express.static(path.join(__dirname, '../../FRONT-END/js')));
 app.use('/html', express.static(path.join(__dirname, '../../FRONT-END/html')));
 app.use('/css', express.static(path.join(__dirname, '../../FRONT-END/css')));
+app.use('/cardHome', express.static(path.join(__dirname, '../../FRONT-END/html/components/cardHome')));
 
 // Rota para chamada inicial do Front-End / home.
 app.route('/index.html')
