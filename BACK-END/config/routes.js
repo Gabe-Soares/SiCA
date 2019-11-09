@@ -1,7 +1,10 @@
 var express = require('express'),
     app = express(),
     path =  require('path'),
+    bodyParser = require('body-parser'),
     ReservaAmbientalController = require('../controller/ReservaAmbientalController');
+
+  app.use(bodyParser.json());
 
   app.route('/')
     .get((req, res) => {

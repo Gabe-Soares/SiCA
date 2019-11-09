@@ -21,23 +21,23 @@ function connect(){
 }
 
 exports.insert = function (req, res){
-    //conn = connect();
-    console.log(req);
-    res.send(req);
+    conn = connect();
+    // console.log(req.body.name);
+    // res.send(req.body);
 
-    // reserva = new ReservaAmbiental($('#usuario').value, $('#nome').value, $('#local').value, $('#tamanho').value, $('#tipo').value, $('#saude').value);
+    reserva = new ReservaAmbiental(req.body.usuario, req.body.nome, req.body.local, req.body.tamanho, req.body.tipo, req.body.saude);
 
-    // if(conn.state == 'disconnected'){
-    //     console.log("Error ReservaAmbientalController.insert(): MySQL connection object state is disconnected.");
-    // }
-    // else{
-    //     var query = "INSERT INTO reservas_ambientais (reservas_id_usuario, nome, local, tamanho, tipo_reserva, saude_reserva) VALUES (" + reserva.usuario() + ", " + reserva.nome() + ", " + reserva.local() + ", " + reserva.tamanho() + ", " + reserva.tipo() + ", " + reserva.saude() + ")"
-    
-    //     conn.query(query, (err, result) => {
-    //         if (err) throw err;
-    //         console.log("Successfully inserted into reservas_ambientais.");
-    //     });
-    // }
+    if(conn.state == 'disconnected'){
+        console.log("Error ReservaAmbientalController.insert(): MySQL connection object state is disconnected.");
+    }
+    else{
+        var query = "INSERT INTO reservas_ambientais (reservas_id_usuario, nome, local, tamanho, tipo_reserva, saude_reserva) VALUES (" + reserva.usuario() + ", " + reserva.nome() + ", " + reserva.local() + ", " + reserva.tamanho() + ", " + reserva.tipo() + ", " + reserva.saude() + ")"
+        console.log(query);
+        conn.query(query, (err, result) => {
+            if (err) throw err;
+            console.log("Successfully inserted into reservas_ambientais.");
+        });
+    }
 }
 
 exports.select = function (req, res){
