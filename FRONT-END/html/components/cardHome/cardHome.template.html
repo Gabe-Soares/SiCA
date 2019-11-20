@@ -1,3 +1,10 @@
-<div class="row">
-    <h2 ng-model="titulo" ><span ng-bind="Ola"></span></h2>
+<p class="tituloHome">{{ctrl.titulo}}
+</p>
+<div class="cardHome text-center">
+    <a href="#!/{{ctrl.routeBtn1}}">
+        <button class="button" style="margin-top: 10vh;">{{ctrl.txtBtn1}}</button>
+    </a>
+    <a href="#!/{{ctrl.routeBtn2}}">
+        <button class="button2">{{ctrl.txtBtn2}}</button>
+    </a>
 </div>

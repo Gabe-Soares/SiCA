@@ -1,0 +1,57 @@
+<div class="container">
+<div class="row"  style="margin-top: 10vh; padding-left: 2vw; color: teal;">
+        <h3 style="font-weight: 300;">{{ctrl.nomePagina}}</h3>
+    </div>
+</div>
+<div class="row" style="margin-top: 5vh;">
+    <div class="container">
+            <md-content layout-padding style="background-color: white;">
+                    <form name="projectForm">
+                
+                      <md-input-container class="md-block">
+                        <label>Nome da reserva</label>
+                        <input required md-no-asterisk name="nomeReserva" ng-model="project.description">
+                        <div ng-messages="projectForm.description.$error">
+                          <div ng-message="required">Campo obrigatório</div>
+                        </div>
+                      </md-input-container>
+                
+                      <div layout="row">
+                        <md-input-container flex="40">
+                          <label>Estado</label>
+                          <input required name="estadoReserva" ng-model="project.clientName">
+                          <div ng-messages="projectForm.clientName.$error">
+                                <div ng-message="required">Campo obrigatório</div>
+                          </div>
+                        </md-input-container>
+
+                        <md-input-container flex="30">
+                                <label>Tamanho</label>
+                                <input required name="tamanhoReserva" ng-model="project.clientName">
+                                <div ng-messages="projectForm.clientName.$error">
+                                        <div ng-message="required">Campo obrigatório</div>
+                                </div>
+                              </md-input-container>
+                              <md-input-container flex="30">
+                                    <label>Tipo da reserva</label>
+                                    <md-select name="tipoRserva" ng-model="project.type" required>
+                                    </md-select>
+                                  </md-input-container>
+                      </div>
+                
+                      <md-input-container class="md-block">
+                            <label>Estado de saúde da reserva</label>
+                            <input required md-no-asterisk name="saudeReserva" ng-model="project.description">
+                            <div ng-messages="projectForm.description.$error">
+                              <div ng-message="required">Campo obrigatório</div>
+                            </div>
+                          </md-input-container>
+                
+                      
+                      <div>
+                        <md-button type="submit">Submit</md-button>
+                      </div>
+                    </form>
+                  </md-content>
+    </div>
+</div>
