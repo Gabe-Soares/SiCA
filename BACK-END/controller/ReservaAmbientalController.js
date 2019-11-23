@@ -83,23 +83,3 @@ exports.selectNome = function (req, res){
         }
     });
 }
-
-exports.selectAll = function (req, res){
-    conn = connect(res);
-
-    var query = "SELECT * FROM reservas_ambientais";
-
-    conn.query(query, (err, result, fields) => {
-        if (err) {
-            console.log("Failed to select from reservas_ambientais.");
-            res.status(503);
-            res.end();
-            throw err;
-        }
-        else{
-            console.log("Successfully selected data from reservas_ambientais.");
-            res.status(200);
-            res.json(result);
-        }
-    });
-}
