@@ -47,3 +47,4 @@ CREATE TABLE eventos_ambientais (
 insert into usuario(tipo_usuario, senha, imagem, login) values ("Adm", "1234", 7.2, "admin");
 select * from reservas_ambientais;
 SELECT * FROM reservas_ambientais WHERE nome LIKE '%Reserva%';
+UPDATE reservas_ambientais SET reservas_id_usuario=1, nome='R1738', local='Amazônia', tamanho=5380, tipo_reserva='Tropical', saude_reserva=5 WHERE id_reserva=1;

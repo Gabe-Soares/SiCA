@@ -25,22 +25,28 @@ function connect(res){
 
 exports.insert = function (req, res){
     conn = connect(res);
+    if(req.body.nome){
+        var query = "INSERT INTO reservas_ambientais (reservas_id_usuario, nome, local, tamanho, tipo_reserva, saude_reserva) VALUES (" + req.body.usuario + ", '" + req.body.nome + "', '" + req.body.local + "', " + req.body.tamanho + ", '" + req.body.tipo + "', " + req.body.saude + ")";
 
-    var query = "INSERT INTO reservas_ambientais (reservas_id_usuario, nome, local, tamanho, tipo_reserva, saude_reserva) VALUES (" + req.body.usuario + ", '" + req.body.nome + "', '" + req.body.local + "', " + req.body.tamanho + ", '" + req.body.tipo + "', " + req.body.saude + ")";
-
-    conn.query(query, (err, result) => {
-        if (err) {
-            console.log("Failed to insert into reservas_ambientais.");
-            res.status(503);
-            res.end();
-            throw err;
-        }
-        else{
-            console.log("Successfully inserted into reservas_ambientais.");
-            res.status(200);
-            res.end();
-        }
-    });
+        conn.query(query, (err, result) => {
+            if (err) {
+                console.log("Failed to insert into reservas_ambientais.");
+                res.status(503);
+                res.end();
+                throw err;
+            }
+            else{
+                console.log("Successfully inserted into reservas_ambientais.");
+                res.status(200);
+                res.end();
+            }
+        });
+    }
+    else{
+        console.log("JSON in the Request Body is empty.");
+        res.status(503);
+        res.end();
+    }  
 }
 
 exports.selectId = function (req, res){
@@ -89,4 +95,58 @@ exports.selectNome = function (req, res){
             res.json(result);
         }
     });
+}
+
+exports.update = function (req, res){
+    conn = connect(res);
+
+    if(req.body.id){
+        var query = "UPDATE reservas_ambientais SET reservas_id_usuario=" + req.body.usuario + ", nome='" + req.body.nome + "', local='" + req.body.local + "', tamanho=" + req.body.tamanho + ", tipo_reserva='" + req.body.tipo + "', saude_reserva=" + req.body.saude + " WHERE id_reserva=" + req.body.id;
+    
+        conn.query(query, (err, result, fields) => {
+            if (err) {
+                console.log("Failed to update reservas_ambientais.");
+                res.status(503);
+                res.end();
+                throw err;
+            }
+            else{
+                console.log("Successfully updated registry from reservas_ambientais.");
+                res.status(200);
+                res.end();
+            }
+        });
+    }
+    else{
+        console.log("JSON in the Request Body is empty.");
+        res.status(503);
+        res.end();
+    }  
+}
+
+exports.delete = function (req, res){
+    conn = connect(res);
+
+    if(req.body.id){
+        var query = "DELETE FROM reservas_ambientais WHERE id_reserva = " + req.body.id;
+
+        conn.query(query, (err, result, fields) => {
+            if (err) {
+                console.log("Failed to delete from reservas_ambientais.");
+                res.status(503);
+                res.end();
+                throw err;
+            }
+            else{
+                console.log("Successfully deleted data from reservas_ambientais.");
+                res.status(200);
+                res.end();
+            }
+        });
+    }
+    else{
+        console.log("JSON in the Request Body is empty.");
+        res.status(503);
+        res.end();
+    }  
 }

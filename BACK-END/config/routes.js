@@ -26,5 +26,7 @@ app.route('/')
 app.route('/api/ReservaAmbiental/Cadastro/').post(ReservaAmbientalController.insert);
 app.route('/api/ReservaAmbiental/ConsultaId/').post(ReservaAmbientalController.selectId);
 app.route('/api/ReservaAmbiental/ConsultaNome/').post(ReservaAmbientalController.selectNome);
+app.route('/api/ReservaAmbiental/Alteracao/').post(ReservaAmbientalController.update);
+app.route('/api/ReservaAmbiental/Remocao/').post(ReservaAmbientalController.delete);
 
 module.exports = app;
