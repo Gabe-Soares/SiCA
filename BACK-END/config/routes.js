@@ -23,11 +23,12 @@ app.route('/index.html')
 app.route('/')
 .get((req, res) => {
   res.redirect('/index.html');
-});
+}); 
 
 // Definição de rotas para as APIs.
 app.route('/api/ReservaAmbiental/Cadastro/').post(ReservaAmbientalController.insert);
 app.route('/api/ReservaAmbiental/ConsultaId/').post(ReservaAmbientalController.selectId);
 app.route('/api/ReservaAmbiental/ConsultaNome/').post(ReservaAmbientalController.selectNome);
+app.route('/api/ReservaAmbiental/ConsultaTodos/').get(ReservaAmbientalController.selectAll);
 
 module.exports = app;

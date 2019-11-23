@@ -1,11 +1,4 @@
 var app = angular.module("App", ['ngRoute', 'ngMaterial', 'ngMessages']);
-app.controller('appCtrl', function(){
-  var self = this;
-  self.nameAplication = 'S i C A'
-  self.go = (path) => {
-    $location.path(path)
-  }
-})
 app.config(function($routeProvider, $mdThemingProvider){
   
   $mdThemingProvider.theme('default')
@@ -23,4 +16,18 @@ app.config(function($routeProvider, $mdThemingProvider){
     })
     .otherwise({redirectTo: '/home'});
 });
+
+app.controller('appCtrl', function($http){
+  var self = this;
+  self.nameAplication = 'S i C A'
+
+
+
+
+
+})
+
+
+
+
 

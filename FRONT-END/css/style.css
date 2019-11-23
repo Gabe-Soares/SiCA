@@ -57,3 +57,25 @@ html{
     color: teal;
     letter-spacing: 5px;
 }
+
+.btn{
+    width: 12vw;
+    height: 40px;
+    background-color: rgb(255, 69, 0);
+    border: none;
+    transition: all .2s;
+    color: white;
+    margin-bottom: 3vh;
+    border-radius: 5px;
+    font-size: 18px;
+    box-shadow: 0 0 4px rgba(0, 0, 0, 0.14), 0 4px 8px rgba(0, 0, 0, 0.28);
+}
+
+
+.btn:hover{
+    box-shadow: none;
+    width: 13vw;
+    border-radius: 0px;
+    background: rgb(179, 48, 0);
+    color: white;
+}

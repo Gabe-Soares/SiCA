@@ -4,10 +4,10 @@ var mysql = require('mysql');
 function connect(res){
     var conn = mysql.createConnection({
         host: "127.0.0.1",
-        port:'3308',
+        port:'3306',
         user: "root",
-        password: "toor",
-        database: "sica"
+        password: "",
+        database: "sica_bd"
     });
 
     conn.connect(err => {
@@ -47,7 +47,7 @@ exports.selectId = function (req, res){
     conn = connect(res);
 
     if(req.body.id)
-        var query = "SELECT * FROM reservas_ambientais WHERE id_reservas = " + req.body.id;
+        var query = "SELECT * FROM reservas_ambientais WHERE id_reserva = " + req.body.id;
 
     conn.query(query, (err, result, fields) => {
         if (err) {
@@ -84,3 +84,22 @@ exports.selectNome = function (req, res){
     });
 }
 
+exports.selectAll = function (req, res){
+    conn = connect(res);
+
+    var query = "SELECT * FROM reservas_ambientais";
+
+    conn.query(query, (err, result, fields) => {
+        if (err) {
+            console.log("Failed to select from reservas_ambientais.");
+            res.status(503);
+            res.end();
+            throw err;
+        }
+        else{
+            console.log("Successfully selected data from reservas_ambientais.");
+            res.status(200);
+            res.json(result);
+        }
+    });
+}

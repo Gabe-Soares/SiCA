@@ -1,7 +1,7 @@
+<div class="row"style="margin-top: 10vh; padding-left: 2vw;">
 <div class="container">
-<div class="row"  style="margin-top: 10vh; padding-left: 2vw; color: teal;">
-        <h3 style="font-weight: 300;">{{ctrl.nomePagina}}</h3>
-    </div>
+        <h3 style="font-weight: 300; color: teal;">Incluir Reserva</h3>
+</div>
 </div>
 <div class="row" style="margin-top: 5vh;">
     <div class="container">
@@ -10,48 +10,42 @@
                 
                       <md-input-container class="md-block">
                         <label>Nome da reserva</label>
-                        <input required md-no-asterisk name="nomeReserva" ng-model="project.description">
+                        <input required md-no-asterisk name="nomeReserva" ng-model="ctrl.cadastro.nome">
                         <div ng-messages="projectForm.description.$error">
                           <div ng-message="required">Campo obrigatório</div>
                         </div>
                       </md-input-container>
                 
                       <div layout="row">
-                        <md-input-container flex="40">
-                          <label>Estado</label>
-                          <input required name="estadoReserva" ng-model="project.clientName">
-                          <div ng-messages="projectForm.clientName.$error">
-                                <div ng-message="required">Campo obrigatório</div>
-                          </div>
-                        </md-input-container>
-
-                        <md-input-container flex="30">
+                        <md-input-container flex="40" style="margin-right: 10px;">
                                 <label>Tamanho</label>
-                                <input required name="tamanhoReserva" ng-model="project.clientName">
+                                <input required name="tamanhoReserva" ng-pattern="/^[0-9]{5}$/" ng-model="ctrl.cadastro.tamanho">
                                 <div ng-messages="projectForm.clientName.$error">
                                         <div ng-message="required">Campo obrigatório</div>
                                 </div>
                               </md-input-container>
-                              <md-input-container flex="30">
-                                    <label>Tipo da reserva</label>
-                                    <md-select name="tipoRserva" ng-model="project.type" required>
-                                    </md-select>
-                                  </md-input-container>
+                              <md-input-container flex="40" >
+                                  <md-select ng-model="ctrl.cadastro.tipo" placeholder="Tipo reserva" ng-change="ctrl.testao()">
+                                    <md-option ng-value="x" ng-repeat="x in ctrl.tipoReservasBr">{{ x }}</md-option>
+                                  </md-select>
+                                </md-input-container>
+                                <md-input-container flex="20" style="margin-left: 10px;">
+                                    <md-select ng-model="ctrl.cadastro.local" placeholder="UF">
+                                        <md-option ng-value="x.nome" ng-repeat="x in ctrl.ufBrasil">{{ x.nome }}</md-option>
+                                      </md-select>
+                                </md-input-container>
                       </div>
                 
                       <md-input-container class="md-block">
-                            <label>Estado de saúde da reserva</label>
-                            <input required md-no-asterisk name="saudeReserva" ng-model="project.description">
-                            <div ng-messages="projectForm.description.$error">
-                              <div ng-message="required">Campo obrigatório</div>
-                            </div>
+                          <md-select ng-model="ctrl.cadastro.saude" placeholder="Saúde da reserva" ng-change="ctrl.testao()">
+                              <md-option ng-value="x.id" ng-repeat="x in ctrl.saudeReserva">{{ x.id }} - {{x.descricao}}</md-option>
+                            </md-select>
                           </md-input-container>
-                
-                      
-                      <div>
-                        <md-button type="submit">Submit</md-button>
-                      </div>
                     </form>
                   </md-content>
+                  <div style="float: right;">
+                      <button class="btn" type="submit" ng-click="ctrl.finalizarCadastro()">Submit</button>
+                      <button class="btn" type="submit" ng-click="ctrl.finalizarCadastro()">Submit</button>
+                    </div>
     </div>
 </div>
