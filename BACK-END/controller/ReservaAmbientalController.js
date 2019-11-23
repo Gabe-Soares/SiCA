@@ -4,9 +4,9 @@ var mysql = require('mysql');
 function connect(res){
     var conn = mysql.createConnection({
         host: "127.0.0.1",
-        port:'3306',
+        port:'3308',
         user: "root",
-        password: "",
+        password: "toor",
         database: "sica_bd"
     });
 
@@ -26,7 +26,7 @@ function connect(res){
 exports.insert = function (req, res){
     conn = connect(res);
 
-    var query = "INSERT INTO reservas_ambientais (reservas_id_usuario, nome, local, tamanho, tipo_reserva, saude_reserva) VALUES (" + req.body.usuario + ", " + req.body.nome + ", " + req.body.local + ", " + req.body.tamanho + ", " + req.body.tipo + ", " + req.body.saude + ")";
+    var query = "INSERT INTO reservas_ambientais (reservas_id_usuario, nome, local, tamanho, tipo_reserva, saude_reserva) VALUES (" + req.body.usuario + ", '" + req.body.nome + "', '" + req.body.local + "', " + req.body.tamanho + ", '" + req.body.tipo + "', " + req.body.saude + ")";
 
     conn.query(query, (err, result) => {
         if (err) {
@@ -48,6 +48,9 @@ exports.selectId = function (req, res){
 
     if(req.body.id)
         var query = "SELECT * FROM reservas_ambientais WHERE id_reserva = " + req.body.id;
+    else{
+        var query = "SELECT * FROM reservas_ambientais";
+    }
 
     conn.query(query, (err, result, fields) => {
         if (err) {
@@ -67,8 +70,12 @@ exports.selectId = function (req, res){
 exports.selectNome = function (req, res){
     conn = connect(res);
 
-    var query = "SELECT * FROM reservas_ambientais WHERE nome LIKE %" + req.body.nome + "%";
-
+    if(req.body.nome)
+        var query = "SELECT * FROM reservas_ambientais WHERE nome LIKE '%" + req.body.nome + "%'";
+    else{
+        var query = "SELECT * FROM reservas_ambientais";
+    }
+        
     conn.query(query, (err, result, fields) => {
         if (err) {
             console.log("Failed to select from reservas_ambientais.");

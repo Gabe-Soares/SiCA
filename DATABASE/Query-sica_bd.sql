@@ -43,3 +43,7 @@ CREATE TABLE eventos_ambientais (
 	CONSTRAINT eventos_id_reservas FOREIGN KEY (eventos_id_reservas) REFERENCES reservas_ambientais (id_reserva),
 	CONSTRAINT eventos_id_usuario FOREIGN KEY (eventos_id_usuario) REFERENCES usuario (id_usuario)
 );
+
+insert into usuario(tipo_usuario, senha, imagem, login) values ("Adm", "1234", 7.2, "admin");
+select * from reservas_ambientais;
+SELECT * FROM reservas_ambientais WHERE nome LIKE '%Reserva%';

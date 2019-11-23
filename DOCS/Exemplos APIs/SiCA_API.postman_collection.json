@@ -1,0 +1,221 @@
+{
+	"info": {
+		"_postman_id": "e46c9bd7-7f91-489d-91f3-27ddbe7b5df4",
+		"name": "SiCA_API",
+		"description": "Post requests for testing SiCA APIs (APS - 6º Sem.).",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Post add ReservaAmbiental",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"usuario\": \"1\",\n\t\"nome\": \"Reserva1738\",\n\t\"local\": \"Amazônia\",\n\t\"tamanho\": \"538\",\n\t\"tipo\": \"Amazônica\",\n\t\"saude\": \"4\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://127.0.0.1:8080/api/ReservaAmbiental/Cadastro/",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"ReservaAmbiental",
+						"Cadastro",
+						""
+					]
+				},
+				"description": "Post na API de criação de nova reserva ambiental."
+			},
+			"response": []
+		},
+		{
+			"name": "Post get ReservaAmbiental by Id",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"id\": \"1\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://127.0.0.1:8080/api/ReservaAmbiental/ConsultaId/",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"ReservaAmbiental",
+						"ConsultaId",
+						""
+					]
+				},
+				"description": "Post para consulta de reservas ambientais pelo ID."
+			},
+			"response": []
+		},
+		{
+			"name": "Post get all ReservaAmbiental by Id",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"type": "text",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"id\": \"\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://127.0.0.1:8080/api/ReservaAmbiental/ConsultaId/",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"ReservaAmbiental",
+						"ConsultaId",
+						""
+					]
+				},
+				"description": "Post para consulta de reservas ambientais pelo ID."
+			},
+			"response": []
+		},
+		{
+			"name": "Post get ReservaAmbiental by Name",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"nome\": \"Reserva\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://127.0.0.1:8080/api/ReservaAmbiental/ConsultaNome/",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"ReservaAmbiental",
+						"ConsultaNome",
+						""
+					]
+				},
+				"description": "Post para consultar reservas ambientais pelo nome."
+			},
+			"response": []
+		},
+		{
+			"name": "Post get all ReservaAmbiental by Name",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"type": "text",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"nome\": \"\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://127.0.0.1:8080/api/ReservaAmbiental/ConsultaNome/",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"ReservaAmbiental",
+						"ConsultaNome",
+						""
+					]
+				},
+				"description": "Post para consultar reservas ambientais pelo nome."
+			},
+			"response": []
+		}
+	],
+	"protocolProfileBehavior": {}
+}

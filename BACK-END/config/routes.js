@@ -5,13 +5,10 @@ var express = require('express'),
     bodyParser = require('body-parser'),
     ReservaAmbientalController = require('../controller/ReservaAmbientalController');
 
-// Declaração dos arquivos externos que o Express.js irá chamar.
+// Declaração dos arquivos externos que o Angular.js irá chamar.
 app.use(bodyParser.json());
 app.use('/static', express.static(path.join(__dirname, '../../FRONT-END')));
 app.use('/components', express.static(path.join(__dirname, '../../FRONT-END/html/components')));
-// app.use('/html', express.static(path.join(__dirname, '../../FRONT-END/html')));
-// app.use('/css', express.static(path.join(__dirname, '../../FRONT-END/css')));
-// app.use('/cardHome', express.static(path.join(__dirname, '../../FRONT-END/html/components/cardHome')));
 
 // Rota para chamada inicial do Front-End / home.
 app.route('/index.html')
