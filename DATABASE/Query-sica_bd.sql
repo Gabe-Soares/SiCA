@@ -8,7 +8,8 @@ CREATE TABLE usuario (
 	senha VARCHAR(20) NOT NULL,
 	imagem DOUBLE NOT NULL,
 	login VARCHAR(30) NOT NULL,
-	PRIMARY KEY (id_usuario)
+	PRIMARY KEY (id_usuario),
+    UNIQUE (login)
 );
 
 CREATE TABLE reservas_ambientais (
@@ -49,4 +50,5 @@ select * from reservas_ambientais;
 SELECT * FROM reservas_ambientais WHERE nome LIKE '%Reserva%';
 UPDATE reservas_ambientais SET reservas_id_usuario=1, nome='R1738', local='Amazônia', tamanho=5380, tipo_reserva='Tropical', saude_reserva=5 WHERE id_reserva=1;
 INSERT INTO eventos_ambientais (eventos_id_usuario, eventos_id_reservas, desc_evento, data_evento, causa, impacto, desc_impacto, consequencia, plano_restauracao, tempo_restauracao) VALUES (1, 1, 'Desmatamento', '2019-04-23', 'Humana', 1, 'Desmatamento ilegal', 'Afetou região', 'Reflorestamento natural', 'Não se aplica');
-DROP DATABASE sica_bd;
+select * from usuario;
+DROP DATABASE sica_bd; /* DROPAR DATABASE MAIS UMA VEZ AO FINAL */

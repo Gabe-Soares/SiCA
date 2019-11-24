@@ -4,7 +4,8 @@ var express = require('express'),
     path =  require('path'),
     bodyParser = require('body-parser'),
     ReservaAmbientalController = require('../controller/ReservaAmbientalController'),
-    EventosController = require('../controller/EventosController');
+    EventosController = require('../controller/EventosController'),
+    LoginController = require('../controller/LoginController');
 
 // Declaração dos arquivos externos que o Angular.js irá chamar.
 app.use(bodyParser.json());
@@ -37,5 +38,13 @@ app.route('/api/Eventos/ConsultaId/').post(EventosController.selectId);
 app.route('/api/Eventos/ConsultaEvento/').post(EventosController.selectEvento);
 app.route('/api/Eventos/Alteracao/').post(EventosController.update);
 app.route('/api/Eventos/Remocao/').post(EventosController.delete);
+
+// Usuario.
+app.route('/api/Usuario/Cadastro/').post(LoginController.insert);
+app.route('/api/Usuario/Auth/').post(LoginController.auth);
+app.route('/api/Usuario/ConsultaId/').post(LoginController.selectId);
+app.route('/api/Usuario/ConsultaLogin/').post(LoginController.selectLogin);
+app.route('/api/Usuario/Alteracao/').post(LoginController.update);
+app.route('/api/Usuario/Remocao/').post(LoginController.delete);
 
 module.exports = app;

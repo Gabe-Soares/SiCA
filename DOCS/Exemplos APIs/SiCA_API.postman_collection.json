@@ -7,214 +7,949 @@
 	},
 	"item": [
 		{
-			"name": "Post add ReservaAmbiental",
-			"request": {
-				"method": "POST",
-				"header": [
-					{
-						"key": "Content-Type",
-						"name": "Content-Type",
-						"value": "application/json",
-						"type": "text"
-					}
-				],
-				"body": {
-					"mode": "raw",
-					"raw": "{\n\t\"usuario\": \"1\",\n\t\"nome\": \"Reserva1738\",\n\t\"local\": \"Amazônia\",\n\t\"tamanho\": \"538\",\n\t\"tipo\": \"Amazônica\",\n\t\"saude\": \"4\"\n}",
-					"options": {
-						"raw": {
-							"language": "json"
-						}
-					}
+			"name": "ReservaAmbiental",
+			"item": [
+				{
+					"name": "Post add ReservaAmbiental",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"usuario\": \"1\",\n\t\"nome\": \"Reserva1738\",\n\t\"local\": \"Amazônia\",\n\t\"tamanho\": \"538\",\n\t\"tipo\": \"Amazônica\",\n\t\"saude\": \"4\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://127.0.0.1:8080/api/ReservaAmbiental/Cadastro/",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"ReservaAmbiental",
+								"Cadastro",
+								""
+							]
+						},
+						"description": "Post na API de criação de nova reserva ambiental."
+					},
+					"response": []
 				},
-				"url": {
-					"raw": "http://127.0.0.1:8080/api/ReservaAmbiental/Cadastro/",
-					"protocol": "http",
-					"host": [
-						"127",
-						"0",
-						"0",
-						"1"
-					],
-					"port": "8080",
-					"path": [
-						"api",
-						"ReservaAmbiental",
-						"Cadastro",
-						""
-					]
+				{
+					"name": "Post get ReservaAmbiental by Id",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"id\": \"1\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://127.0.0.1:8080/api/ReservaAmbiental/ConsultaId/",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"ReservaAmbiental",
+								"ConsultaId",
+								""
+							]
+						},
+						"description": "Post para consulta de reservas ambientais pelo ID."
+					},
+					"response": []
 				},
-				"description": "Post na API de criação de nova reserva ambiental."
-			},
-			"response": []
+				{
+					"name": "Post get all ReservaAmbiental by Id",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"type": "text",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"id\": \"\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://127.0.0.1:8080/api/ReservaAmbiental/ConsultaId/",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"ReservaAmbiental",
+								"ConsultaId",
+								""
+							]
+						},
+						"description": "Post para consulta de reservas ambientais pelo ID."
+					},
+					"response": []
+				},
+				{
+					"name": "Post get ReservaAmbiental by Name",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"nome\": \"Reserva\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://127.0.0.1:8080/api/ReservaAmbiental/ConsultaNome/",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"ReservaAmbiental",
+								"ConsultaNome",
+								""
+							]
+						},
+						"description": "Post para consultar reservas ambientais pelo nome."
+					},
+					"response": []
+				},
+				{
+					"name": "Post get all ReservaAmbiental by Name",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"type": "text",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"nome\": \"\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://127.0.0.1:8080/api/ReservaAmbiental/ConsultaNome/",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"ReservaAmbiental",
+								"ConsultaNome",
+								""
+							]
+						},
+						"description": "Post para consultar reservas ambientais pelo nome."
+					},
+					"response": []
+				},
+				{
+					"name": "Post update ReservaAmbiental",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"usuario\": \"1\",\n\t\"nome\": \"Reserva1738\",\n\t\"local\": \"Amazônia\",\n\t\"tamanho\": \"538\",\n\t\"tipo\": \"Amazônica\",\n\t\"saude\": \"4\",\n\t\"id\": \"1\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://127.0.0.1:8080/api/ReservaAmbiental/Alteracao/",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"ReservaAmbiental",
+								"Alteracao",
+								""
+							]
+						},
+						"description": "Post para atualizar um registro já existente de reserva ambiental."
+					},
+					"response": []
+				},
+				{
+					"name": "Post delete ReservaAmbiental",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"id\": \"1\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://127.0.0.1:8080/api/ReservaAmbiental/Remocao/",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"ReservaAmbiental",
+								"Remocao",
+								""
+							]
+						},
+						"description": "Post para remover um registro de reserva ambiental."
+					},
+					"response": []
+				}
+			],
+			"description": "Requests relacionados a API da tabela de reservas ambientais.",
+			"protocolProfileBehavior": {}
 		},
 		{
-			"name": "Post get ReservaAmbiental by Id",
-			"request": {
-				"method": "POST",
-				"header": [
-					{
-						"key": "Content-Type",
-						"name": "Content-Type",
-						"value": "application/json",
-						"type": "text"
-					}
-				],
-				"body": {
-					"mode": "raw",
-					"raw": "{\n\t\"id\": \"1\"\n}",
-					"options": {
-						"raw": {
-							"language": "json"
-						}
-					}
+			"name": "Eventos",
+			"item": [
+				{
+					"name": "Post add Evento",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"usuario\": \"1\",\n\t\"reserva\": \"1\",\n\t\"evento\": \"Queimada\",\n\t\"data\": \"2019-11-22\",\n\t\"causa\": \"Natural\",\n\t\"impacto\": \"2\",\n\t\"impacto_desc\": \"Incêndio afetou 15%.\",\n\t\"consequencia\": \"Sem consequências\",\n\t\"plano\": \"Nenhum\",\n\t\"tempo\": \"Não se aplica\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://127.0.0.1:8080/api/Eventos/Cadastro/",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"Eventos",
+								"Cadastro",
+								""
+							]
+						},
+						"description": "Post na API de criação de novo evento."
+					},
+					"response": []
 				},
-				"url": {
-					"raw": "http://127.0.0.1:8080/api/ReservaAmbiental/ConsultaId/",
-					"protocol": "http",
-					"host": [
-						"127",
-						"0",
-						"0",
-						"1"
-					],
-					"port": "8080",
-					"path": [
-						"api",
-						"ReservaAmbiental",
-						"ConsultaId",
-						""
-					]
+				{
+					"name": "Post get Evento by Id",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"type": "text",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"id\": \"1\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://127.0.0.1:8080/api/Eventos/ConsultaId/",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"Eventos",
+								"ConsultaId",
+								""
+							]
+						},
+						"description": "Post para consulta de eventos pelo ID."
+					},
+					"response": []
 				},
-				"description": "Post para consulta de reservas ambientais pelo ID."
-			},
-			"response": []
+				{
+					"name": "Post get all Evento by Id",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"type": "text",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"id\": \"\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://127.0.0.1:8080/api/Eventos/ConsultaId/",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"Eventos",
+								"ConsultaId",
+								""
+							]
+						},
+						"description": "Post para consulta de eventos pelo ID."
+					},
+					"response": []
+				},
+				{
+					"name": "Post get Eventos by Evento",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"type": "text",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"evento\": \"Desmatamento\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://127.0.0.1:8080/api/Eventos/ConsultaEvento/",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"Eventos",
+								"ConsultaEvento",
+								""
+							]
+						},
+						"description": "Post para consultar eventos pelo evento."
+					},
+					"response": []
+				},
+				{
+					"name": "Post get all Eventos by Evento",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"type": "text",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"evento\": \"\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://127.0.0.1:8080/api/Eventos/ConsultaEvento/",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"Eventos",
+								"ConsultaEvento",
+								""
+							]
+						},
+						"description": "Post para consultar eventos pelo evento."
+					},
+					"response": []
+				},
+				{
+					"name": "Post update Eventos",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"type": "text",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"usuario\": \"1\",\n\t\"reserva\": \"1\",\n\t\"evento\": \"Queimada\",\n\t\"data\": \"2019-11-22\",\n\t\"causa\": \"Natural\",\n\t\"impacto\": \"2\",\n\t\"impacto_desc\": \"Incêndio afetou 15%\",\n\t\"consequencia\": \"Amazônica\",\n\t\"plano\": \"Irrigação manual semanal\",\n\t\"tempo\": \"3 meses\",\n\t\"id\": \"2\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://127.0.0.1:8080/api/Eventos/Alteracao/",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"Eventos",
+								"Alteracao",
+								""
+							]
+						},
+						"description": "Post para atualizar um registro já existente de evento."
+					},
+					"response": []
+				},
+				{
+					"name": "Post delete Eventos",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"type": "text",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"id\": \"1\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://127.0.0.1:8080/api/Eventos/Remocao/",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"Eventos",
+								"Remocao",
+								""
+							]
+						},
+						"description": "Post para remover um registro de evento."
+					},
+					"response": []
+				}
+			],
+			"description": "Requests relacionados a API da tabela de eventos.",
+			"protocolProfileBehavior": {}
 		},
 		{
-			"name": "Post get all ReservaAmbiental by Id",
-			"request": {
-				"method": "POST",
-				"header": [
-					{
-						"key": "Content-Type",
-						"name": "Content-Type",
-						"type": "text",
-						"value": "application/json"
-					}
-				],
-				"body": {
-					"mode": "raw",
-					"raw": "{\n\t\"id\": \"\"\n}",
-					"options": {
-						"raw": {
-							"language": "json"
-						}
-					}
+			"name": "Usuarios",
+			"item": [
+				{
+					"name": "Post add Usuario",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"login\": \"Gabril\",\n\t\"senha\": \"1234\",\n\t\"imagem\": \"C:/Users/gabri/Pictures/modified.jpg\",\n\t\"tipo\": \"Adm\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://127.0.0.1:8080/api/Usuario/Cadastro/",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"Usuario",
+								"Cadastro",
+								""
+							]
+						},
+						"description": "Request para adicionar novo usuário."
+					},
+					"response": []
 				},
-				"url": {
-					"raw": "http://127.0.0.1:8080/api/ReservaAmbiental/ConsultaId/",
-					"protocol": "http",
-					"host": [
-						"127",
-						"0",
-						"0",
-						"1"
-					],
-					"port": "8080",
-					"path": [
-						"api",
-						"ReservaAmbiental",
-						"ConsultaId",
-						""
-					]
+				{
+					"name": "Post auth Usuario",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"login\": \"Gabril\",\n\t\"senha\": \"1234\",\n\t\"imagem\": \"C:/Users/gabri/Pictures/modified.jpg\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://127.0.0.1:8080/api/Usuario/Auth/",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"Usuario",
+								"Auth",
+								""
+							]
+						},
+						"description": "Request para autenticar usuário."
+					},
+					"response": []
 				},
-				"description": "Post para consulta de reservas ambientais pelo ID."
-			},
-			"response": []
-		},
-		{
-			"name": "Post get ReservaAmbiental by Name",
-			"request": {
-				"method": "POST",
-				"header": [
-					{
-						"key": "Content-Type",
-						"name": "Content-Type",
-						"value": "application/json",
-						"type": "text"
-					}
-				],
-				"body": {
-					"mode": "raw",
-					"raw": "{\n\t\"nome\": \"Reserva\"\n}",
-					"options": {
-						"raw": {
-							"language": "json"
-						}
-					}
+				{
+					"name": "Request get Usuario by Id",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"id\": \"2\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://127.0.0.1:8080/api/Usuario/ConsultaId/",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"Usuario",
+								"ConsultaId",
+								""
+							]
+						},
+						"description": "Request para consulta de usuários pelo Id."
+					},
+					"response": []
 				},
-				"url": {
-					"raw": "http://127.0.0.1:8080/api/ReservaAmbiental/ConsultaNome/",
-					"protocol": "http",
-					"host": [
-						"127",
-						"0",
-						"0",
-						"1"
-					],
-					"port": "8080",
-					"path": [
-						"api",
-						"ReservaAmbiental",
-						"ConsultaNome",
-						""
-					]
+				{
+					"name": "Request get all Usuarios by Id",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"type": "text",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"id\": \"\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://127.0.0.1:8080/api/Usuario/ConsultaId/",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"Usuario",
+								"ConsultaId",
+								""
+							]
+						},
+						"description": "Request para consulta de todos os usuários pelo Id."
+					},
+					"response": []
 				},
-				"description": "Post para consultar reservas ambientais pelo nome."
-			},
-			"response": []
-		},
-		{
-			"name": "Post get all ReservaAmbiental by Name",
-			"request": {
-				"method": "POST",
-				"header": [
-					{
-						"key": "Content-Type",
-						"name": "Content-Type",
-						"type": "text",
-						"value": "application/json"
-					}
-				],
-				"body": {
-					"mode": "raw",
-					"raw": "{\n\t\"nome\": \"\"\n}",
-					"options": {
-						"raw": {
-							"language": "json"
-						}
-					}
+				{
+					"name": "Request get Usuario by Login",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"type": "text",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"login\": \"Gabril\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://127.0.0.1:8080/api/Usuario/ConsultaLogin/",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"Usuario",
+								"ConsultaLogin",
+								""
+							]
+						},
+						"description": "Request para consulta de usuários pelo login."
+					},
+					"response": []
 				},
-				"url": {
-					"raw": "http://127.0.0.1:8080/api/ReservaAmbiental/ConsultaNome/",
-					"protocol": "http",
-					"host": [
-						"127",
-						"0",
-						"0",
-						"1"
-					],
-					"port": "8080",
-					"path": [
-						"api",
-						"ReservaAmbiental",
-						"ConsultaNome",
-						""
-					]
+				{
+					"name": "Request get all Usuarios by Login",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"type": "text",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"login\": \"\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://127.0.0.1:8080/api/Usuario/ConsultaLogin/",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"Usuario",
+								"ConsultaLogin",
+								""
+							]
+						},
+						"description": "Request para consulta de todos os usuários pelo login."
+					},
+					"response": []
 				},
-				"description": "Post para consultar reservas ambientais pelo nome."
-			},
-			"response": []
+				{
+					"name": "Post update Usuarios",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"type": "text",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"login\": \"Gab\",\n\t\"senha\": \"4321\",\n\t\"imagem\": \"C:/Users/gabri/Pictures/modified.jpg\",\n\t\"tipo\": \"Adm\",\n\t\"id\": \"2\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://127.0.0.1:8080/api/Usuario/Alteracao/",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"Usuario",
+								"Alteracao",
+								""
+							]
+						},
+						"description": "Post para atualizar um registro já existente de usuário."
+					},
+					"response": []
+				},
+				{
+					"name": "Post delete Usuarios",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"type": "text",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"id\": \"2\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://127.0.0.1:8080/api/Usuario/Remocao/",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"Usuario",
+								"Remocao",
+								""
+							]
+						},
+						"description": "Post para remover um registro de usuário."
+					},
+					"response": []
+				}
+			],
+			"description": "Requests relacionados as APIs da tabela usuarios.",
+			"protocolProfileBehavior": {}
 		}
 	],
 	"protocolProfileBehavior": {}
