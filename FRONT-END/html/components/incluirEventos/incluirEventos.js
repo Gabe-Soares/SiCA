@@ -17,9 +17,15 @@ app.controller('incluirEventosCtrl', function(reservaApi, eventosApi){
             tempo: self.cadastro.tempo,
             evento: self.cadastro.evento,
             reserva: self.cadastro.reserva,
-            data: self.dataAtual.getDate()+"-"+(self.dataAtual.getMonth()+1)+"-"+self.dataAtual.getFullYear()
+            data: self.dataAtual.getFullYear()+"-"+(self.dataAtual.getMonth()+1)+"-"+self.dataAtual.getDate()
         }
-        console.log(self.cadastro1)
+        eventosApi.setEvento(self.cadastro1).then(function(response){
+            console.log(response);
+            self.cadastro1 = {}
+            window.location.href = "#!/home";
+        }, function(response){
+            alert(response)
+        })
     }
 
     reservaApi.getAllReservas().then(function(response){

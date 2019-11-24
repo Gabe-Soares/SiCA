@@ -1,4 +1,4 @@
-app.controller('incluirReservasCtrl', function($http, reservaApi){
+app.controller('incluirReservasCtrl', function(reservaApi){
     var self = this;
     self.saudeReserva = [
         {
@@ -45,6 +45,7 @@ app.controller('incluirReservasCtrl', function($http, reservaApi){
     self.reservasAmbientais = []
     self.ufBrasil = []
     self.cadastro = {
+        usuario: 1
     }
     self.tipoReservasBr = [
         'Parque Nacional',
@@ -63,8 +64,14 @@ app.controller('incluirReservasCtrl', function($http, reservaApi){
     ]
     self.finalizarCadastro = () => {
         console.log(self.cadastro);
-            cadastrarReserva(self.cadastro)// chamar api de cadastro de reservas
+        reservaApi.setReserva(self.cadastro).then(function(response){
+            console.log(response)
             self.cadastro = null
+            window.location.href = "#!/home";
+        }, 
+        function(response){
+            console.log(response)
+        })
     }
 
 
@@ -79,18 +86,6 @@ app.controller('incluirReservasCtrl', function($http, reservaApi){
         .then(function(response){
             self.ufBrasil = response.data
         })
-    }
-    function cadastrarReserva(param){
-        if(param){
-            $http.post('/api/ReservaAmbiental/Cadastro/', param)
-            .then(function(response){
-                console.log(response)
-                window.location.href = "#!/home";
-            }, 
-            function(response){
-                console.log(response)
-            })
-        }
     }
 
     //Chamadas ao iniciar pagina

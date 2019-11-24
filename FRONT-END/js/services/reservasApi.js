@@ -13,4 +13,7 @@ angular.module('App').service('reservaApi', function($http){
     self.getOneReservaName = (name) => {
         return $http.post('/api/ReservaAmbiental/ConsultaNome/', name)
     }
+    self.setReserva = (param) => {
+        return $http.post('/api/ReservaAmbiental/Cadastro/', param)
+    }
 })
