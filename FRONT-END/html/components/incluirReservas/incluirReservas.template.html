@@ -10,7 +10,7 @@
                 
                       <md-input-container class="md-block">
                         <label>Nome da reserva</label>
-                        <input required  name="nomeReserva" ng-model="ctrl.cadastro.nome">
+                        <input required name="nomeReserva" ng-model="ctrl.cadastro.nome">
                       </md-input-container>
                 
                       <div layout="row">
@@ -22,19 +22,19 @@
                                 </div>
                               </md-input-container>
                               <md-input-container flex="40" >
-                                  <md-select ng-model="ctrl.cadastro.tipo" placeholder="Tipo reserva" ng-change="ctrl.testao()">
+                                  <md-select required ng-model="ctrl.cadastro.tipo" placeholder="Tipo reserva" ng-change="ctrl.testao()">
                                     <md-option ng-value="x" ng-repeat="x in ctrl.tipoReservasBr">{{ x }}</md-option>
                                   </md-select>
                                 </md-input-container>
                                 <md-input-container flex="20" style="margin-left: 10px;">
-                                    <md-select ng-model="ctrl.cadastro.local" placeholder="UF">
+                                    <md-select required ng-model="ctrl.cadastro.local" placeholder="UF">
                                         <md-option ng-value="x.nome" ng-repeat="x in ctrl.ufBrasil">{{ x.nome }}</md-option>
                                       </md-select>
                                 </md-input-container>
                       </div>
                 
                       <md-input-container class="md-block">
-                          <md-select ng-model="ctrl.cadastro.saude" placeholder="Saúde da reserva" ng-change="ctrl.testao()">
+                          <md-select required ng-model="ctrl.cadastro.saude" placeholder="Saúde da reserva" ng-change="ctrl.testao()">
                               <md-option ng-value="x.id" ng-repeat="x in ctrl.saudeReserva">{{ x.id }} - {{x.descricao}}</md-option>
                             </md-select>
                           </md-input-container>
