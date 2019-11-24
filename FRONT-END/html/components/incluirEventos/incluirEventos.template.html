@@ -1,0 +1,47 @@
+<div class="row"style="margin-top: 10vh; padding-left: 2vw;">
+    <div class="container">
+            <h3 style="font-weight: 300; color: teal;">Incluir Eventos</h3>
+    </div>
+    </div>
+    <div class="row" style="margin-top: 5vh;">
+        <div class="container">
+                <md-content layout-padding style="background-color: white;">
+                        <form name="projectForm">
+                    
+                          <md-input-container class="md-block">
+                            <label>Tipo do evento</label>
+                            <input required md-no-asterisk name="nomeReserva" ng-model="ctrl.cadastro.nome">
+                            <div ng-messages="projectForm.description.$error">
+                              <div ng-message="required">Campo obrigatório</div>
+                            </div>
+                          </md-input-container>
+                    
+                          <div layout="row">
+                            <md-input-container flex="30" >
+                                    <md-datepicker ng-model="ctrl.dataAtual" style="width: 100%;" md-placeholder={{ctrl.dataAtual}}></md-datepicker>
+                                  </md-input-container>
+                                  <md-input-container flex="50" >
+                                      <md-select ng-model="ctrl.cadastro.tipo" placeholder="Tipo reserva" ng-change="ctrl.testao()">
+                                        <md-option ng-value="x" ng-repeat="x in ctrl.tipoReservasBr">{{ x }}</md-option>
+                                      </md-select>
+                                    </md-input-container>
+                                    <md-input-container flex="20" style="margin-left: 10px;">
+                                        <md-select ng-model="ctrl.cadastro.local" placeholder="UF">
+                                            <md-option ng-value="x.nome" ng-repeat="x in ctrl.ufBrasil">{{ x.nome }}</md-option>
+                                          </md-select>
+                                    </md-input-container>
+                          </div>
+                    
+                          <md-input-container class="md-block">
+                              <md-select ng-model="ctrl.cadastro.saude" placeholder="Saúde da reserva" ng-change="ctrl.testao()">
+                                  <md-option ng-value="x.id" ng-repeat="x in ctrl.saudeReserva">{{ x.id }} - {{x.descricao}}</md-option>
+                                </md-select>
+                              </md-input-container>
+                        </form>
+                      </md-content>
+                      <div style="float: right;">
+                          <button class="btn" type="submit" ng-click="ctrl.finalizarCadastro()">Submit</button>
+                          <button class="btn" type="submit" ng-click="ctrl.finalizarCadastro()">Submit</button>
+                        </div>
+        </div>
+    </div>

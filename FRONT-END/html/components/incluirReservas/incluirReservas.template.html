@@ -10,16 +10,13 @@
                 
                       <md-input-container class="md-block">
                         <label>Nome da reserva</label>
-                        <input required md-no-asterisk name="nomeReserva" ng-model="ctrl.cadastro.nome">
-                        <div ng-messages="projectForm.description.$error">
-                          <div ng-message="required">Campo obrigatório</div>
-                        </div>
+                        <input required  name="nomeReserva" ng-model="ctrl.cadastro.nome">
                       </md-input-container>
                 
                       <div layout="row">
                         <md-input-container flex="40" style="margin-right: 10px;">
                                 <label>Tamanho</label>
-                                <input required name="tamanhoReserva" ng-pattern="/^[0-9]{5}$/" ng-model="ctrl.cadastro.tamanho">
+                                <input required name="tamanhoReserva" pattern="^[\d,.?!]+$" ng-model="ctrl.cadastro.tamanho">
                                 <div ng-messages="projectForm.clientName.$error">
                                         <div ng-message="required">Campo obrigatório</div>
                                 </div>

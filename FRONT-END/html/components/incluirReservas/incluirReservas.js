@@ -64,7 +64,7 @@ app.controller('incluirReservasCtrl', function($http){
     ]
     self.finalizarCadastro = () => {
         console.log(self.cadastro);
-        // cadastrarReserva(self.cadastro)// chamar api de cadastro de reservas
+        cadastrarReserva(self.cadastro)// chamar api de cadastro de reservas
         self.cadastro = null
     }
 
@@ -82,13 +82,16 @@ app.controller('incluirReservasCtrl', function($http){
         })
     }
     function cadastrarReserva(param){
-        $http.post('/api/ReservaAmbiental/Cadastro/', param)
-        .then(function(response){
-            console.log(response)
-        }, 
-        function(response){
-            console.log(response.status)
-        })
+        if(param){
+            $http.post('/api/ReservaAmbiental/Cadastro/', param)
+            .then(function(response){
+                console.log(response)
+                window.location.href = "#!/home";
+            }, 
+            function(response){
+                console.log(response)
+            })
+        }
     }
     function buscarReservas(){
         $http.get('/api/ReservaAmbiental/ConsultaTodos/').then(
