@@ -1,0 +1,59 @@
+<md-dialog aria-label="Mango (Fruit)">
+        <form ng-cloak>
+          <md-toolbar>
+            <div class="md-toolbar-tools">
+              <h2>Editar Reserva</h2>
+              <span flex></span>
+              <md-button class="md-icon-button" ng-click="ctrl.cancel()">
+                x
+              </md-button>
+            </div>
+          </md-toolbar>
+      
+          <md-dialog-content>
+            <div class="md-dialog-content">
+                    <div class="row" style="margin-top: 5vh;">
+                        <div class="container">
+                                <md-content layout-padding style="background-color: white;">
+                                        <form name="projectForm">
+                                    
+                                          <md-input-container class="md-block">
+                                            <label>Nome</label>
+                                            <input name="nomeReserva" ng-model="ctrl.cadastro.nome">
+                                          </md-input-container>
+                                    
+                                          <div layout="row">
+                                            <md-input-container flex="20" style="margin-right: 10px;">
+                                                    <label>KM</label>
+                                                    <input name="tamanhoReserva" pattern="^[\d,.?!]+$" ng-model="ctrl.cadastro.tamanho">
+                                                    <div ng-messages="projectForm.clientName.$error">
+                                                            <div ng-message="required">Campo obrigatório</div>
+                                                    </div>
+                                                  </md-input-container>
+                                                  <md-input-container flex="40" >
+                                                      <md-select ng-model="ctrl.cadastro.tipo" placeholder="{{ctrl.itemEscolhido.tipo_reserva}}" ng-change="ctrl.testao()">
+                                                        <md-option ng-value="x" ng-repeat="x in ctrl.tipoReservasBr">{{ x }}</md-option>
+                                                      </md-select>
+                                                    </md-input-container>
+                                                    <md-input-container flex="40" style="margin-left: 10px;">
+                                                        <md-select ng-model="ctrl.cadastro.local" placeholder="{{ctrl.itemEscolhido.local}}">
+                                                            <md-option ng-value="x.nome" ng-repeat="x in ctrl.ufBrasil">{{ x.nome }}</md-option>
+                                                          </md-select>
+                                                    </md-input-container>
+                                          </div>
+                                    
+                                          <md-input-container class="md-block">
+                                              <md-select ng-model="ctrl.cadastro.saude" placeholder="{{ctrl.itemEscolhido.saude_reserva}}" ng-change="ctrl.testao()">
+                                                  <md-option ng-value="x.id" ng-repeat="x in ctrl.saudeReserva">{{ x.id }} - {{x.descricao}}</md-option>
+                                                </md-select>
+                                              </md-input-container>
+                                        </form>
+                                      </md-content>
+                                      <div style="float: right;">
+                                          <button class="btn" type="submit" ng-click="ctrl.finalizarCadastro()">Salvar</button>
+                                        </div>
+                        </div>
+                    </div>
+          </md-dialog-content>
+        </form>
+      </md-dialog>

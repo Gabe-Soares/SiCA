@@ -1,5 +1,6 @@
 angular.module('App').service('reservaApi', function($http){
     let self = this;
+    self.selecionada = {}
         
     self.getUfBr = () => {
         return $http.get('http://servicodados.ibge.gov.br/api/v1/localidades/estados')
@@ -15,5 +16,8 @@ angular.module('App').service('reservaApi', function($http){
     }
     self.setReserva = (param) => {
         return $http.post('/api/ReservaAmbiental/Cadastro/', param)
+    }
+    self.updateReserva = (param) => {
+        return $http.post('/api/ReservaAmbiental/Alteracao/', param)
     }
 })

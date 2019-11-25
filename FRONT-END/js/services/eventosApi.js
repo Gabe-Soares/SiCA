@@ -1,7 +1,7 @@
 angular.module('App').service('eventosApi', function($http){
     let self = this;
 
-    self.getAllEvntos = () => {
+    self.getAllEventos = () => {
         return $http.post('/api/Eventos/ConsultaId/', {})
     }
     self.getOneEventoId = (id) => {

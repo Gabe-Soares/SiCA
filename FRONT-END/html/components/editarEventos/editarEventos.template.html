@@ -1,0 +1,31 @@
+<div class="container" style="margin-top: 5vh;">
+        <table class="table table-striped">
+            <thead class="text-center">
+                <th>#</th>
+                <th>Evento</th>
+                <th>Data</th>
+                <th>Reserva</th>
+                <th>Causa</th>
+                <th>Impacto</th>
+                <th>Desc. Imacto</th>
+                <th>Consequência</th>
+                <th>Plano</th>
+                <th>Tempo</th>
+            </thead>
+            <tbody class="text-center">
+                <tr ng-click="ctrl.itemChosen(x)" ng-model="ctrl.reservaChosen" ng-repeat="x in ctrl.eventosAll">
+                    <td>{{x.id_evento}}</td>
+                    <td>{{x.desc_evento}}</td>
+                    <td>{{x.data_evento}}</td>
+                    <td>{{x.eventos_id_reservas}}</td>
+                    <td>{{x.causa}}</td>
+                    <td>{{x.impacto}}</td>
+                    <td>{{x.desc_impacto}}</td>
+                    <td>{{x.consequencia}}</td>
+                    <td>{{x.plano_restauracao}}</td>
+                    <td>{{x.tempo_restauracao}}</td>
+                    <td></td>
+                </tr>
+            </tbody>
+        </table>
+    </div>

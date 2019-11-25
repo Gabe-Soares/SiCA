@@ -4,18 +4,19 @@
                     <th>#</th>
                     <th>Nome</th>
                     <th>Local</th>
-                    <th>Tamaho</th>
+                    <th>KM</th>
                     <th>Tipo</th>
                     <th>Saude</th>
                 </thead>
                 <tbody class="text-center">
-                    <tr ng-click="ctrl.itemChosen(x)" ng-repeat="x in ctrl.reservasAll">
+                    <tr ng-click="ctrl.itemChosen(x)" ng-model="ctrl.reservaChosen" ng-repeat="x in ctrl.reservasAll">
                         <td>{{x.id_reserva}}</td>
                         <td>{{x.nome}}</td>
                         <td>{{x.local}}</td>
                         <td>{{x.tamanho}}</td>
                         <td>{{x.tipo_reserva}}</td>
                         <td>{{x.saude_reserva}}</td>
+                        <td></td>
                     </tr>
                 </tbody>
             </table>

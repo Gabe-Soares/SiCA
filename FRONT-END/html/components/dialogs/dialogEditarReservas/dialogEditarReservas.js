@@ -1,5 +1,15 @@
-app.controller('incluirReservasCtrl', function(reservaApi){
-    var self = this;
+app.controller('dialogEditarReservasCtrl', function(reservasFactory, $mdDialog, reservaApi){
+    let self = this
+    self.cadastro = {
+        id: reservasFactory.getItem().id_reserva,
+        usuario: 1,
+        nome: reservasFactory.getItem().nome,
+        local: reservasFactory.getItem().local,
+        tamanho: reservasFactory.getItem().tamanho,
+        tipo: reservasFactory.getItem().tipo_reserva,
+        saude: reservasFactory.getItem().saude_reserva,
+
+    }
     self.saudeReserva = [
         {
             id: 1,
@@ -42,11 +52,6 @@ app.controller('incluirReservasCtrl', function(reservaApi){
             descricao: 'Perfeita'
         }
     ]
-    self.reservasAmbientais = []
-    self.ufBrasil = []
-    self.cadastro = {
-        usuario: 1
-    }
     self.tipoReservasBr = [
         'Parque Nacional',
         'Reserva Biológica',
@@ -62,26 +67,22 @@ app.controller('incluirReservasCtrl', function(reservaApi){
         'Reserva Particular do Patrimônio Natural'
 
     ]
-    self.finalizarCadastro = () => {
-        console.log(self.cadastro);
-        reservaApi.setReserva(self.cadastro).then(function(response){
-            console.log(response)
-            self.cadastro = null
-            window.location.href = "#!/home";
-        }, 
-        function(response){
-            console.log(response)
-        })
+    self.ufBrasil = []
+    self.itemEscolhido = reservasFactory.getItem();
+    self.cancel = () =>{
+        $mdDialog.cancel()
     }
-    
-    //Functions Consumindo Apis
-    function buscarUfBrasil(){
-        reservaApi.getUfBr()
-        .then(function(response){
-            self.ufBrasil = response.data
-        })
-    }
+    console.log(self.itemEscolhido)
 
-    //Chamadas ao iniciar pagina
-    buscarUfBrasil()
+
+    self.finalizarCadastro = () =>{
+        console.log(self.cadastro)
+        reservaApi.updateReserva(self.cadastro).then(function(response){
+            console.log(response)
+            self.cancel()
+        })
+    }
+    reservaApi.getUfBr().then(function(response){
+        self.ufBrasil = response.data
     })
+})
