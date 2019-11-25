@@ -1,5 +1,11 @@
 html{
     overflow-x: hidden;
+    background: #fff;
+}
+
+
+md-input-container:not(.md-input-has-value) input:not(:focus) {
+    color: black;
 }
 
 .row{

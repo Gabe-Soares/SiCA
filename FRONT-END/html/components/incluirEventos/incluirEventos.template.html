@@ -1,0 +1,74 @@
+<div class="row"style="margin-top: 10vh; padding-left: 2vw;">
+    <div class="container">
+            <h3 style="font-weight: 300; color: teal;">Incluir Eventos</h3>
+    </div>
+    </div>
+    <div class="row" style="margin-top: 5vh;">
+        <div class="container">
+                <md-content layout-padding style="background-color: white;">
+                        <form name="projectForm">
+                    
+                          <md-input-container class="md-block">
+                            <label>Descrição do evento</label>
+                            <input required md-no-asterisk name="descEvento" ng-model="ctrl.cadastro.evento">
+                          </md-input-container>
+                    
+                          <div layout="row">
+                            <md-input-container flex="40" >
+                                    <md-datepicker ng-model="ctrl.dataAtual" style="width: 100%;" md-placeholder={{ctrl.dataAtual}}></md-datepicker>
+                                  </md-input-container>
+                                  <md-input-container flex="60" >
+                                      <md-select required ng-model="ctrl.cadastro.reserva" placeholder="Reservas" ng-change="ctrl.testao()">
+                                        <md-option ng-value="x.id_reserva" ng-repeat="x in ctrl.reservasAll">{{ x.nome }}</md-option>
+                                      </md-select>
+                                    </md-input-container>
+                          </div>
+                    
+                          <md-input-container class="md-block">
+                                <md-input-container class="md-block">
+                                    <label>Causa</label>
+                                    <input required md-no-asterisk name="causaEvento" ng-model="ctrl.cadastro.causa">
+                                </md-input-container>
+                              </md-input-container>
+                              <md-input-container class="md-block">
+
+                                  <div layout="row">
+                                      <md-input-container flex="20" style="margin-right: 10px;">
+                                          <md-select required ng-model="ctrl.cadastro.impacto" placeholder="Impacto" >
+                                              <md-option ng-value="x" ng-repeat="x in ctrl.impactoEvento">{{ x }}</md-option>
+                                            </md-select>
+                                            </md-input-container>
+                                            <md-input-container flex="80" >
+                                                <label>Descrição impacto</label>
+                                                <input required name="causaReserva" ng-model="ctrl.cadastro.impacto_desc">
+                                              </md-input-container>
+                                    </div>
+                                    <div layout="row">
+                                              <md-input-container flex="100" >
+                                                  <label>Consequência</label>
+                                                  <input required name="causaReserva" ng-model="ctrl.cadastro.consequencia">
+                                                </md-input-container>
+                                      </div>
+                                      <div layout="row">
+                                          <md-input-container flex="100" >
+                                              <label>Plano</label>
+                                              <input required name="causaReserva" ng-model="ctrl.cadastro.plano">
+                                            </md-input-container>
+                                  </div>
+                                  <div layout="row">
+                                      <md-input-container flex="100" >
+                                          <label>Tempo</label>
+                                          <input required name="causaReserva" ng-model="ctrl.cadastro.tempo">
+                                        </md-input-container>
+                              </div>
+
+
+
+                                
+                        </form>
+                      </md-content>
+                      <div style="float: right;">
+                          <button class="btn" type="submit" ng-click="ctrl.finalizarCadastro()">Incluir</button>
+                        </div>
+        </div>
+    </div>

@@ -1,4 +1,4 @@
-app.controller('incluirReservasCtrl', function($http){
+app.controller('incluirReservasCtrl', function(reservaApi){
     var self = this;
     self.saudeReserva = [
         {
@@ -64,50 +64,29 @@ app.controller('incluirReservasCtrl', function($http){
     ]
     self.finalizarCadastro = () => {
         console.log(self.cadastro);
-        // cadastrarReserva(self.cadastro)// chamar api de cadastro de reservas
-        self.cadastro = null
+        reservaApi.setReserva(self.cadastro).then(function(response){
+            console.log(response)
+            self.cadastro = null
+            window.location.href = "#!/home";
+        }, 
+        function(response){
+            console.log(response)
+        })
     }
 
 
 
-
-
-
+    var teste = {
+        nome: "Teste 5"
+    }
 
     //Functions Consumindo Apis
     function buscarUfBrasil(){
-        $http.get('http://servicodados.ibge.gov.br/api/v1/localidades/estados')
+        reservaApi.getUfBr()
         .then(function(response){
             self.ufBrasil = response.data
         })
     }
-    function cadastrarReserva(param){
-        $http.post('/api/ReservaAmbiental/Cadastro/', param)
-        .then(function(response){
-            console.log(response)
-        }, 
-        function(response){
-            console.log(response.status)
-        })
-    }
-    function buscarReservas(){
-        $http.get('/api/ReservaAmbiental/ConsultaTodos/').then(
-            function(response){
-                self.reservasAmbientais = response.data
-            },
-            function(response){
-
-            }
-        )
-    }
-    function buscarUserId(param){
-        $http.post('/api/ReservaAmbiental/ConsultaId/', testee ).then(function(response){
-            console.log(response)
-        }, function(response){
-            console.log(response)
-        })
-    }
-    
 
     //Chamadas ao iniciar pagina
     buscarUfBrasil()
