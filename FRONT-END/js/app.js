@@ -61,12 +61,9 @@ app.config(function($routeProvider, $mdThemingProvider, $mdDateLocaleProvider){
     .otherwise({redirectTo: '/login'});
 });
 
-app.controller('appCtrl', function($http){
+app.controller('appCtrl', function($http, usuarioApi){
   var self = this;
   self.nameAplication = 'S i C A'
-
-
-
 
 
 })

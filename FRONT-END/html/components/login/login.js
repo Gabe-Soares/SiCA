@@ -11,7 +11,6 @@ app.controller('loginCtrl', function(usuarioApi, usuarioFactory){
             usuarioApi.teste = response.data[0]
             console.log(usuarioApi.teste)
             if(usuarioApi.teste){
-
                 window.location.href = "#!/home";
             }else{
                 alert('usuario incorreto')

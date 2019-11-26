@@ -1,5 +1,6 @@
 angular.module('App').factory('usuarioFactory', function(){
     var teste = {}
+    
     var addItem = function(login, senha, imagem, tipo){
          var item = {
              login: login,
