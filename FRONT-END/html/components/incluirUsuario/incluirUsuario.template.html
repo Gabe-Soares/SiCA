@@ -1,0 +1,37 @@
+<div class="row"style="margin-top: 10vh; padding-left: 2vw;">
+        <div class="container">
+                <h3 style="font-weight: 300; color: teal;">Incluir Usuario</h3>
+        </div>
+        </div>
+        <div class="row" style="margin-top: 5vh;">
+            <div class="container">
+                    <md-content layout-padding style="background-color: white;">
+                            <form name="projectForm">
+                        
+                              <div layout="row">
+                                <md-input-container flex="40" style="margin-right: 10px;">
+                                        <label>Login</label>
+                                        <input required name="login" ng-model="ctrl.cadastro.login">
+                                      </md-input-container>
+                                      <md-input-container flex="40" >
+                                            <label>senha</label>
+                                            <input required name="login" ng-model="ctrl.cadastro.senha">
+                                        </md-input-container>
+                                        <md-input-container flex="20" style="margin-left: 10px;">
+                                            <md-select required ng-model="ctrl.cadastro.tipo" placeholder="Tipo">
+                                                <md-option ng-value="x" ng-repeat="x in ctrl.tipoUser">{{ x }}</md-option>
+                                              </md-select>
+                                        </md-input-container>
+                              </div>
+                              <div layout="row">
+                                    <md-input-container flex="40">
+                                        <input type="file" name="image" id="image">
+                                    </md-input-container>
+                              </div>
+                            </form>
+                          </md-content>
+                          <div style="float: right;">
+                              <button class="btn" type="submit" ng-click="ctrl.finalizarCadastro()">Incluir</button>
+                            </div>
+            </div>
+        </div>

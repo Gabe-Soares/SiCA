@@ -1,9 +1,9 @@
-app.controller('editarEventosCtrl', function(eventosApi){
+app.controller('editarEventosCtrl', function(eventosApi, eventosFactory, $mdDialog){
     let self = this;
     self.teste;
     self.eventosAll = []
     self.itemChosen = (item) =>{
-        reservasFactory.addItem(item.id_reserva, item.nome, item.local,  item.tamanho, item.tipo_reserva, item.saude_reserva)
+        eventosFactory.addItem(item.id_evento, item.desc_evento, item.data_evento, item.eventos_id_reservas,  item.causa, item.impacto, item.desc_impacto, item.consequencia, item.plano_restauracao, item.tempo_restauracao)
         console.log(item)
         self.showAdvanced()
     }
@@ -17,9 +17,8 @@ app.controller('editarEventosCtrl', function(eventosApi){
           fullscreen: true
         })
         .then(function() {
-          
         }, function() {
-            reservaApi.getAllReservas().then(function(response){
+            eventosApi.getAllEventos().then(function(response){
                 self.reservasAll = response.data  
             });
           console.log('Dialog cancelado.');

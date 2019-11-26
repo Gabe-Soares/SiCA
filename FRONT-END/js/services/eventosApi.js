@@ -14,4 +14,7 @@ angular.module('App').service('eventosApi', function($http){
     self.setEvento = (evento) => {
         return $http.post('/api/Eventos/Cadastro/', evento)
     }
+    self.updateEvento = (param) => {
+        return $http.post('/api/Eventos/Alteracao/', param)
+    }
 })

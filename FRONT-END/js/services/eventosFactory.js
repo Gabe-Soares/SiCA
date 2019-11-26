@@ -1,7 +1,8 @@
 angular.module('App').factory('eventosFactory', function(){
     var teste = {}
-    var addItem = function(evento, data, reserva, causa, impacto, descImpacto, consequencia, plano, tempo){
-         var item = {
+    var addItem = function(idEvento, evento, data, reserva, causa, impacto, descImpacto, consequencia, plano, tempo){
+          var item = {
+            idEvento: idEvento,
             evento: evento, 
             data: data, 
             reserva: reserva, 

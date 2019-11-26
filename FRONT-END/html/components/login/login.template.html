@@ -1,0 +1,27 @@
+<div class="modal-dialog text-center">
+        <div class="col-sm-9 main-section">
+          <div class="modal-content">
+            <div class="col-12 user-img">
+              <img src="/static/img/face.png" />
+            </div>
+            <div class="col-12 form-input">
+              <h1 class="cabecalho-desc">
+                <label for="">
+                  SiCA
+                </label>
+              </h1>
+              <form>
+                <div class="form-group">
+                  <input ng-model="ctrl.cadastro.login" class="form-control" type="text" name="login_field" id="login_field" placeholder="Digite seu Login ..."/>
+                </div>
+                <div class="form-group">
+                  <input ng-model="ctrl.cadastro.senha" class="form-control" type="password" name="password" id="password" placeholder="Digite sua senha ..."/>
+                </div>
+                <input class="ng-hide" id="input-file-id" multiple type="file" />
+                <input id="image" type="file" class="md-button md-raised md-primary" style="width: 100%;">
+                <button class="md-button md-raised md-primary" type="button" name="btn_login" id="btn_login" ng-click="ctrl.authLogin()">Login</button>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>

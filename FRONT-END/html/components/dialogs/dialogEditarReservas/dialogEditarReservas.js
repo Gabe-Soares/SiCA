@@ -79,7 +79,6 @@ app.controller('dialogEditarReservasCtrl', function(reservasFactory, $mdDialog, 
         console.log(self.cadastro)
         reservaApi.updateReserva(self.cadastro).then(function(response){
             console.log(response)
-            self.cancel()
         })
     }
     reservaApi.getUfBr().then(function(response){

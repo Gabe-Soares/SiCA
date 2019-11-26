@@ -1,13 +1,8 @@
-app.controller('homeCtrl', function(){
+app.controller('homeCtrl', function(usuarioApi){
     let self = this;
+    self.userLogado = usuarioApi.teste
+    console.log(self.userLogado)
+    
+    
 
-    self.user = {
-        tipoUser: "tipo 1"
-    }
-
-    if(self.user.tipoUser == "adm"){
-        self.isAdm = true;
-    }else{
-        self.isAdm = false
-    }
 })

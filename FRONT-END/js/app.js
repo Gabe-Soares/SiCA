@@ -9,7 +9,14 @@ app.config(function($routeProvider, $mdThemingProvider, $mdDateLocaleProvider){
   };
   $routeProvider
     .when("/home", {
-      templateUrl: '/static/html/home.html'
+      templateUrl: '/static/html/home.html',
+      controller: 'homeCtrl',
+      controllerAs: 'ctrl'
+    })
+    .when('/login', {
+      templateUrl: '/components/login/login.template.html',
+      controller: 'loginCtrl',
+      controllerAs: 'ctrl'
     })
     .when('/incluir-reserva', {
       templateUrl : '/components/incluirReservas/incluirReservas.template.html',
@@ -32,21 +39,26 @@ app.config(function($routeProvider, $mdThemingProvider, $mdDateLocaleProvider){
       controllerAs: 'ctrl'
     })
     .when('/vizualizar-reservas', {
-      templateUrl: '/compnents/vizualizar/vizualizarReservas',
+      templateUrl: '/components/vizualizar/vizualizarReservas',
       controller: 'vizualizarReservasCtrl',
       controllerAs: 'ctrl'
     })
     .when('/vizualizar-eventos', {
-      templateUrl: '/compnents/vizualizar/vizualizarEventos',
+      templateUrl: '/components/vizualizar/vizualizarEventos',
       controller: 'vizualizarEventosCtrl',
       controllerAs: 'ctrl'
     })
     .when('/vizualizar-usuarios', {
-      templateUrl: '/compnents/vizualizar/vizualizarUsuarios',
+      templateUrl: '/components/vizualizar/vizualizarUsuarios',
       controller: 'vizualizarUsuariosCtrl',
       controllerAs: 'ctrl'
     })
-    .otherwise({redirectTo: '/home'});
+    .when('/incluir-usuario', {
+      templateUrl: '/components/incluirUsuario/incluirUsuario.template.html',
+      controller: 'incluirUsuarioCtrl',
+      controllerAs: 'ctrl'
+    })
+    .otherwise({redirectTo: '/login'});
 });
 
 app.controller('appCtrl', function($http){
