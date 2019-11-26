@@ -7,7 +7,6 @@ app.controller('editarEventosCtrl', function(eventosApi, eventosFactory, $mdDial
         console.log(item)
         self.showAdvanced()
     }
-
     self.showAdvanced = function(ev) {
         $mdDialog.show({
           templateUrl: '/components/dialogs/dialogEditarEventos/dialogEditarEvento.template.html',
@@ -18,9 +17,10 @@ app.controller('editarEventosCtrl', function(eventosApi, eventosFactory, $mdDial
           fullscreen: true
         })
         .then(function() {
+            
         }, function() {
             eventosApi.getAllEventos().then(function(response){
-                self.reservasAll = response.data  
+                self.eventosAll = response.data  
             });
           console.log('Dialog cancelado.');
         });

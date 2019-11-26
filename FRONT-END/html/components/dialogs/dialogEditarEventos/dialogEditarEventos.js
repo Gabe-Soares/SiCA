@@ -38,6 +38,7 @@ app.controller('dialogEditarEventosCtrl', function(eventosApi, eventosFactory, $
         console.log(self.cadastro1);
         eventosApi.updateEvento(self.cadastro1).then(function(response){
             console.log(response);
+            console.log(self.cadastro1)
             self.cancel()
         }, function(response){
             console.log(response)
