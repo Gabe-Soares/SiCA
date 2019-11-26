@@ -4,6 +4,8 @@ app.controller('mostrarReservasCtrl', function(reservaApi){
 
     reservaApi.getAllReservas().then(function(response){
         console.log(response)
+        self.reservasAll = response.data
+        
     })
 
 })

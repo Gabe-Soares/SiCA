@@ -43,14 +43,14 @@ app.config(function($routeProvider, $mdThemingProvider, $mdDateLocaleProvider){
       controller: 'mostrarReservasCtrl',
       controllerAs: 'ctrl'
     })
-    .when('/vizualizar-eventos', {
+    .when('/mostrar-eventos', {
       templateUrl: '/components/mostrarEventos/mostrarEventos.template.html',
       controller: 'mostrarEventosCtrl',
       controllerAs: 'ctrl'
     })
     .when('/vizualizar-usuarios', {
-      templateUrl: '/components/vizualizar/vizualizarUsuarios',
-      controller: 'vizualizarUsuariosCtrl',
+      templateUrl: '/components/mostrarUsuarios/mostrarUsuarios.template.html',
+      controller: 'mostrarUsuariosCtrl',
       controllerAs: 'ctrl'
     })
     .when('/incluir-usuario', {

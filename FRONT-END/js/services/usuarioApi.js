@@ -8,4 +8,7 @@ angular.module('App').service('usuarioApi', function($http, usuarioFactory){
     self.authUsuario = (usuario) =>{
         return $http.post('/api/Usuario/Auth/', usuario)
     }
+    self.getAllUser = () => {
+        return $http.post('/api/Usuario/ConsultaId/', {})
+    }
 })
