@@ -10,7 +10,12 @@ app.controller('loginCtrl', function(usuarioApi, usuarioFactory){
         usuarioApi.authUsuario(self.cadastro1).then(function(response){
             usuarioApi.teste = response.data[0]
             console.log(usuarioApi.teste)
-            window.location.href = "#!/home";
+            if(usuarioApi.teste){
+
+                window.location.href = "#!/home";
+            }else{
+                alert('usuario incorreto')
+            }
         })
     }
 })

@@ -1,11 +1,11 @@
 <p class="tituloHome">{{ctrl.titulo}}
 </p>
 <div class="cardHome text-center">
-    <a href="#!/{{ctrl.routeBtn1}}" ng-if="ctrl.userLogado.tipo_usuario == 'adm'">
+    <a href="#!/{{ctrl.routeBtn1}}" ng-if="ctrl.userLogado.tipo_usuario == 'adm' || ctrl.userLogado.tipo_usuario == 'nv1'">
         <button class="button" style="margin-top: 10vh;">{{ctrl.txtBtn1}}</button>
     </a>
-    <a href="#!/{{ctrl.routeNotAdm}}" ng-if="ctrl.userLogado.tipo_usuario == 'nv2'">
-        <button class="button" style="margin-top: 15vh;">Mostrar</button>
+    <a href="#!/{{ctrl.routeNotAdm}}" ng-if="ctrl.userLogado.tipo_usuario == 'nv2' || ctrl.userLogado.tipo_usuario == 'nv1'">
+        <button class="button2" style="margin-top: 15vh;">Mostrar</button>
     </a>
     <a href="#!/{{ctrl.routeBtn2}}" ng-if="ctrl.userLogado.tipo_usuario == 'adm'">
         <button class="button2">{{ctrl.txtBtn2}}</button>
