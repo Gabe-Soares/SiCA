@@ -39,8 +39,8 @@ app.config(function($routeProvider, $mdThemingProvider, $mdDateLocaleProvider){
       controllerAs: 'ctrl'
     })
     .when('/vizualizar-reservas', {
-      templateUrl: '/components/vizualizar/vizualizarReservas',
-      controller: 'vizualizarReservasCtrl',
+      templateUrl: '/components/mostrarReservas/mostrarReservas.template.html',
+      controller: 'mostrarReservasCtrl',
       controllerAs: 'ctrl'
     })
     .when('/vizualizar-eventos', {

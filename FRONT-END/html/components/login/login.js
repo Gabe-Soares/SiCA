@@ -8,7 +8,9 @@ app.controller('loginCtrl', function(usuarioApi, usuarioFactory){
             senha: self.cadastro.senha
         }
         usuarioApi.authUsuario(self.cadastro1).then(function(response){
-            console.log(response)
+            usuarioApi.teste = response.data[0]
+            console.log(usuarioApi.teste)
+            window.location.href = "#!/home";
         })
     }
 })
