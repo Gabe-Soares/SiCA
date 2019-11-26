@@ -12,15 +12,8 @@ app.component('cardHome', {
     controllerAs: 'ctrl'
 })
 
-app.controller('carHomeCtrl', function(){
-    var self = this;    
-    self.user = {
-        tipoUser: "adm"
-    }
-
-    if(self.user.tipoUser == "adm"){
-        self.isAdm = true;
-    }else{
-        self.isAdm = false
-    }
+app.controller('carHomeCtrl', function(usuarioApi){
+    var self = this;  
+    self.userLogado = usuarioApi.teste
+    console.log(self.userLogado)  
 })
