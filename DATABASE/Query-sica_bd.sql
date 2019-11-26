@@ -45,10 +45,5 @@ CREATE TABLE eventos_ambientais (
 	CONSTRAINT eventos_id_usuario FOREIGN KEY (eventos_id_usuario) REFERENCES usuario (id_usuario)
 );
 
-insert into usuario(tipo_usuario, senha, imagem, login) values ("Adm", "1234", 7.2, "admin");
-select * from reservas_ambientais;
-SELECT * FROM reservas_ambientais WHERE nome LIKE '%Reserva%';
-UPDATE reservas_ambientais SET reservas_id_usuario=1, nome='R1738', local='Amazônia', tamanho=5380, tipo_reserva='Tropical', saude_reserva=5 WHERE id_reserva=1;
-INSERT INTO eventos_ambientais (eventos_id_usuario, eventos_id_reservas, desc_evento, data_evento, causa, impacto, desc_impacto, consequencia, plano_restauracao, tempo_restauracao) VALUES (1, 1, 'Desmatamento', '2019-04-23', 'Humana', 1, 'Desmatamento ilegal', 'Afetou região', 'Reflorestamento natural', 'Não se aplica');
+insert into usuario(tipo_usuario, senha, imagem, login) values ("adm", "1234", 636719.0323, "admin");
 select * from usuario;
-DROP DATABASE sica_bd; /* DROPAR DATABASE MAIS UMA VEZ AO FINAL */

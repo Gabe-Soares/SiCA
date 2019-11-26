@@ -5,9 +5,9 @@ var {Image} = require('image-js');
 function connect(res){
     var conn = mysql.createConnection({
         host: "127.0.0.1",
-        port:'3306',
+        port:'3308',
         user: "root",
-        password: "",
+        password: "toor",
         database: "sica_bd"
     });
 

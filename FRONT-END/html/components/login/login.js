@@ -3,7 +3,7 @@ app.controller('loginCtrl', function(usuarioApi, usuarioFactory){
     self.cadastro = {}
     self.authLogin = () => {
         self.cadastro1 = {
-            imagem: 'C:/Users/Matheus/Desktop/APS/SiCA/FRONT-END/img/'+document.getElementById('image').files[0].name,
+            imagem: 'C:/Users/gabri/Desktop/SiCA/DOCS/imagens/'+document.getElementById('image').files[0].name,
             login: self.cadastro.login,
             senha: self.cadastro.senha
         }
