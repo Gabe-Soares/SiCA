@@ -44,8 +44,8 @@ app.config(function($routeProvider, $mdThemingProvider, $mdDateLocaleProvider){
       controllerAs: 'ctrl'
     })
     .when('/vizualizar-eventos', {
-      templateUrl: '/components/vizualizar/vizualizarEventos',
-      controller: 'vizualizarEventosCtrl',
+      templateUrl: '/components/mostrarEventos/mostrarEventos.template.html',
+      controller: 'mostrarEventosCtrl',
       controllerAs: 'ctrl'
     })
     .when('/vizualizar-usuarios', {
