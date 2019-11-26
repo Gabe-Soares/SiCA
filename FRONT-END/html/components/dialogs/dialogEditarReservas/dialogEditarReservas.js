@@ -78,6 +78,7 @@ app.controller('dialogEditarReservasCtrl', function(reservasFactory, $mdDialog, 
     self.finalizarCadastro = () =>{
         console.log(self.cadastro)
         reservaApi.updateReserva(self.cadastro).then(function(response){
+            self.cancel()
             console.log(response)
         })
     }

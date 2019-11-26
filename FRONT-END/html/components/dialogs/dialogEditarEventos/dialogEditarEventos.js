@@ -32,10 +32,13 @@ app.controller('dialogEditarEventosCtrl', function(eventosApi, eventosFactory, $
             plano: self.cadastro.plano,
             tempo: self.cadastro.tempo,
             evento: self.cadastro.evento,
-            reserva: self.cadastro.reserva
+            reserva: self.cadastro.reserva,
+            data: self.dataAtual.getFullYear()+"-"+self.dataAtual.getMonth()+"-"+self.dataAtual.getDate()
         }
+        console.log(self.dataAtual)
         eventosApi.updateEvento(self.cadastro1).then(function(response){
             console.log(response);
+            console.log(self.cadastro1)
             self.cancel()
         }, function(response){
             console.log(response)
