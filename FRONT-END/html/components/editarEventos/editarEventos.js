@@ -7,6 +7,7 @@ app.controller('editarEventosCtrl', function(eventosApi, eventosFactory, $mdDial
         console.log(item)
         self.showAdvanced()
     }
+
     self.showAdvanced = function(ev) {
         $mdDialog.show({
           templateUrl: '/components/dialogs/dialogEditarEventos/dialogEditarEvento.template.html',
